@@ -1,0 +1,16 @@
+<div class="reviews">
+  <ul>
+    <% @restaurant.reviews.each do |review| %>
+    <li class="review">
+      <p>
+        <%= review.rating %>
+        <br>
+        <%= review.content %>
+        <br>
+      </p>
+    </li>
+    <% end %>
+  </ul>
+  <%= "No reviews yet" if @restaurant.reviews.empty? %>
+</div>
+<%= link_to "Add a review", new_restaurant_review_path(@restaurant) %>
